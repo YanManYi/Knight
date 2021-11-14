@@ -14,6 +14,7 @@ public class MouseManager : SingLeton<MouseManager>
 
     // public EventVector3 OnMouseClicked;
     public event Action<Vector3> OnMouseClicked;
+    public event Action<GameObject> OnEnemyClicked;
 
     RaycastHit hitInfo;
     public LayerMask layerMask;
@@ -42,8 +43,12 @@ public class MouseManager : SingLeton<MouseManager>
             {
                 case "Ground":
                     Cursor.SetCursor(target,new Vector2(16,16),CursorMode.Auto);
-
                     break;
+
+                case "Enemy":
+                    Cursor.SetCursor(attack, new Vector2(16, 16), CursorMode.Auto);
+                    break;
+
                 default:
                     Cursor.SetCursor(arrow, new Vector2(16, 16), CursorMode.Auto);
                     break;
@@ -62,8 +67,13 @@ public class MouseManager : SingLeton<MouseManager>
 
                 case "Ground":
                     OnMouseClicked?.Invoke(hitInfo.point);
-
                     break;
+
+                case "Enemy":
+                    
+                    OnEnemyClicked?.Invoke(hitInfo.collider.gameObject);
+                    break;
+
 
 
                 default:

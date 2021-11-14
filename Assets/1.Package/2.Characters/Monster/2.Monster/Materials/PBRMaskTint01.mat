@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PBRMaskTint01
-  m_Shader: {fileID: 4800000, guid: 06631314b2564264aa69911acb04fbcd, type: 3}
+  m_Shader: {fileID: 4800000, guid: 922da79bd35034c44b59a85a78fd94e4, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -20,31 +20,19 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo:
-        m_Texture: {fileID: 2800000, guid: 51f9e219544fa9e43b2e607d68132085, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1b7e7b9e80845f34e9187046516d8ac9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Mask01:
-        m_Texture: {fileID: 2800000, guid: 6cb3c662c0bbef84bb0250b3a3966181, type: 3}
+    - _Mask:
+        m_Texture: {fileID: 2800000, guid: 76850db1bea2f9d40bff7c23c89a709f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Mask02:
-        m_Texture: {fileID: 2800000, guid: d24de662ead04654ba102e2107466df5, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _PolyArtAlbedo:
-        m_Texture: {fileID: 2800000, guid: 536df1e0489ff89439efc8572dd56a61, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _PolyArtMask01:
-        m_Texture: {fileID: 2800000, guid: bac802af435fa734f9a84382ee5b3b49, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _PolyArtMask02:
-        m_Texture: {fileID: 2800000, guid: 48075e1022e1c624aa9e8f4fb55c361e, type: 3}
+    - _Normal:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SAM:
-        m_Texture: {fileID: 2800000, guid: fd73a8da802c2da469d3a5d40d297650, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9f9105e8376161f4bb30dc3a8b32b1ca, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
@@ -52,16 +40,13 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Color01Power: 2.33
-    - _Color02Power: 3.2
-    - _Color03Power: 1.33
-    - _Color04Power: 1.66
-    - _Metallic: 0.3
-    - _OverallBrightness: 1.26
-    - _Smoothness: 0
+    - _Brightness: 1
+    - _Color01Power: 1.61
+    - _Color02Power: 3.09
+    - _Color03Power: 2
     - __dirty: 1
     m_Colors:
-    - _Color01: {r: 0.6226415, g: 0.036936358, b: 0, a: 0}
-    - _Color02: {r: 1, g: 0.10196079, b: 0, a: 0}
-    - _Color03: {r: 1, g: 0.109489046, b: 0, a: 0}
-    - _Color04: {r: 0.6226415, g: 0.059042953, b: 0.014684939, a: 0}
+    - _Color01: {r: 0.046550598, g: 0.26545298, b: 0.9044118, a: 0}
+    - _Color02: {r: 0.089965396, g: 0.20629999, b: 0.7647059, a: 0}
+    - _Color03: {r: 0.07628676, g: 0.14626008, b: 0.6102941, a: 0}
+  m_BuildTextureStacks: []
