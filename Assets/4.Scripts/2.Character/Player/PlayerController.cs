@@ -12,8 +12,9 @@ public class PlayerController : MonoBehaviour
 
     private float lastAttackTime;
 
-    private CharacterStats characterStats;
-    
+    private CharacterStats characterStats;//里面包含两个ScriptableObject数据读取出来的属性
+
+    private bool isDie;
 
     private void Awake()
     {  
@@ -31,6 +32,11 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        isDie = characterStats.CurrentHealth == 0;
+        if (isDie)
+        {
+            GetComponent<BoxCollider>().enabled = false;           
+        }
         SwitchAnimation();
       lastAttackTime  -= Time.deltaTime;
     }
@@ -82,7 +88,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //TODO:根据武器长度修改攻击距离
-        while (Vector3.Distance(attackTarget.transform.position, transform.position) > 2)
+        while (Vector3.Distance(attackTarget.transform.position, transform.position) > characterStats .AttackRange)
         {
 
             agent.SetDestination(attackTarget.transform.position);
@@ -100,10 +106,18 @@ public class PlayerController : MonoBehaviour
 
         if (lastAttackTime<=0)
         {
-            //TODO:暂时没有攻击cd数据
-            lastAttackTime = 1;
+           
+            lastAttackTime = characterStats.CoolDown;
 
-            anim.SetTrigger("Attack01");
+            //暴击判断
+           characterStats.isCritical = Random.value <= characterStats.CriticalChance;
+            anim.SetBool("Critical",characterStats.isCritical);
+
+            anim.SetTrigger("Skill01");           
+            anim.SetTrigger("Skill02");
+          
+
+
         }
 
         yield break;
@@ -119,6 +133,18 @@ public class PlayerController : MonoBehaviour
     private void SwitchAnimation()
     {
         anim.SetFloat("Speed", agent.velocity.magnitude);
-
+        anim.SetBool("Die", isDie);
     }
+
+
+    //Animation event
+    void Hit()
+    {
+        CharacterStats targetStats = attackTarget.GetComponent<CharacterStats>();
+
+
+        targetStats.TakeDamage(characterStats,targetStats);
+    }
+
+
 }

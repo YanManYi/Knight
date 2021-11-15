@@ -189,7 +189,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5819041}
-  m_LocalRotation: {x: 0.13961895, y: 0.000000008518923, z: -0.0000000012011682, w: 0.99020535}
+  m_LocalRotation: {x: 0.13961895, y: -0.000000008518924, z: 0.0000000012011683, w: 0.99020535}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -263,7 +263,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 127827311}
-  m_LocalRotation: {x: 0.14331213, y: 0.000000008514385, z: -0.0000000012329413, w: 0.98967755}
+  m_LocalRotation: {x: 0.14331213, y: -0.000000008514385, z: 0.0000000012329413, w: 0.98967755}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -976,7 +976,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.13961895, y: 0.000000011903638, z: -7.2389517e-10, w: 0.9902053}
+  m_LocalRotation: {x: 0.13961895, y: -0.000000011903639, z: 7.23895e-10, w: 0.9902053}
   m_LocalPosition: {x: -5.09, y: 11.3, z: -0.27000046}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1393,7 +1393,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1848060253}
-  m_LocalRotation: {x: 0.19611613, y: 1e-45, z: -0, w: 0.9805807}
+  m_LocalRotation: {x: 0.19611613, y: -0, z: -0, w: 0.9805807}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -63853,10 +63853,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5573202117601876220, guid: 8c6727530965a0544b04f32374129fc8, type: 3}
-      propertyPath: characterData
-      value: 
-      objectReference: {fileID: 11400000, guid: 00f062e2add609f47ae1a36da0c7d9ff, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c6727530965a0544b04f32374129fc8, type: 3}
 --- !u!1 &7399771365891941011

@@ -11820,7 +11820,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 237e39fd7ba32fb4ea2276de655ac3f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterData: {fileID: 0}
+  characterData: {fileID: 11400000, guid: 00f062e2add609f47ae1a36da0c7d9ff, type: 2}
+  attackData: {fileID: 11400000, guid: c1c96a91412e1fc4a877d91c17ef1786, type: 2}
+  isCritical: 0
 --- !u!95 &4638237279587217398
 Animator:
   serializedVersion: 3
