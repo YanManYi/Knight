@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private bool isDie;
 
     private void Awake()
-    {  
+    {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         characterStats = GetComponent<CharacterStats>();
