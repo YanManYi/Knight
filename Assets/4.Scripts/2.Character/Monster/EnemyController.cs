@@ -32,9 +32,35 @@ public class EnemyController : MonoBehaviour
 
     [Header("可视范围")]
     public float sightRadius;
+    [Header("巡逻范围")]
+    public float patrolRadius;
+    [Header("持续眺望时间")]
+    public float durationLookAt;
+    [HideInInspector ]
+    public float remainLookAt;
+    [HideInInspector]
+    public  Vector3 wayPoint, InitPoint;
+
+
 
     [HideInInspector]
     public  NavMeshAgent agent;
+
+
+    private  Animator anim;
+    [HideInInspector]
+   public  bool isWalk, isAttack, isFollow;
+
+    /// <summary>
+    /// 动画切换，Update
+    /// </summary>
+    void SwitchAnimation()
+    {
+        anim.SetBool("Walk",isWalk);
+        anim.SetBool("Attack",isAttack);
+        anim.SetBool("Follow",isFollow);
+    }
+
     [HideInInspector]
     public  GameObject attackTarget;
     [HideInInspector]
@@ -44,11 +70,14 @@ public class EnemyController : MonoBehaviour
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        anim = GetComponent<Animator>();
         InitSpeed = agent.speed;
     }
 
     private void Start()
     {
+         GetNewWayPoint();
+        InitPoint = transform.position;
         if (isPatrol)
             TransitionToState(patrolState);
         else
@@ -56,7 +85,7 @@ public class EnemyController : MonoBehaviour
     }
     private void Update()
     {
-      Debug.Log(FoundPlayer());
+      
         if (FoundPlayer() && currentState != attackState)
         {
             //问题：这里的会重复进入状态,解决：&&currentState!=attackState解决
@@ -64,6 +93,8 @@ public class EnemyController : MonoBehaviour
         }
 
         currentState.OnUpdate(this);
+
+        SwitchAnimation();
     }
 
 
@@ -83,9 +114,26 @@ public class EnemyController : MonoBehaviour
 
     }
 
+
+   public  void GetNewWayPoint()
+    {
+       remainLookAt = durationLookAt;
+        float randomX = Random.Range(-patrolRadius,patrolRadius);
+        float randomZ = Random.Range(-patrolRadius,patrolRadius);
+
+
+        Vector3 randomPoint = new Vector3(InitPoint.x+ randomX,transform.position.y, InitPoint.z+ randomZ);
+        NavMeshHit hit;
+        wayPoint = randomPoint;
+        //返回一个最近网格上的点
+        wayPoint = NavMesh.SamplePosition(randomPoint, out hit, patrolRadius, 1) ? hit.position : transform.position;
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, sightRadius);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position,patrolRadius);
     }
 }

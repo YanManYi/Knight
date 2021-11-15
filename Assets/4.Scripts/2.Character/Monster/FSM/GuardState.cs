@@ -8,6 +8,7 @@ public class GuardState : EnemyBaseState
     {
         Debug.Log("½øÈëÕ¾×®×´Ì¬");
         enemy.agent.speed=enemy.InitSpeed;
+        enemy.isAttack = false;
     }
 
     public override void OnUpdate(EnemyController enemy)

@@ -11,12 +11,15 @@ public class PlayerController : MonoBehaviour
     private GameObject   attackTarget;
 
     private float lastAttackTime;
+
+    private CharacterStats characterStats;
     
 
     private void Awake()
     {  
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
+        characterStats = GetComponent<CharacterStats>();
     }
 
     private void Start()
