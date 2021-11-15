@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Crab Data
   m_EditorClassIdentifier: 
   maxHealth: 100
-  currentHealth: 0
+  currentHealth: 100
   baseDefence: 0
   currentDefence: 0
