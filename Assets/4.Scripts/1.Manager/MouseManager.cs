@@ -59,7 +59,7 @@ public class MouseManager : SingLeton<MouseManager>
 
     void MouseController()
     {
-        if (Input.GetMouseButtonDown(0)&&hitInfo.collider!=null)
+        if (Input.GetMouseButtonDown(0)&&hitInfo.collider!=null)//主角死了就不能点了缺个判断
         {
            
             switch (hitInfo.transform.tag)

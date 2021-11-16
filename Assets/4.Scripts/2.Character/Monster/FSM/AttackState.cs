@@ -43,11 +43,7 @@ public class AttackState :EnemyBaseState
                     EventAttack(enemy);
 
                 }
-                else {
-
-                    enemy.characterStats.isCritical = false;
-                }
-
+           
 
 
             }

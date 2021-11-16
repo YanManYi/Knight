@@ -35,7 +35,8 @@ public class PlayerController : MonoBehaviour
         isDie = characterStats.CurrentHealth == 0;
         if (isDie)
         {
-            GetComponent<BoxCollider>().enabled = false;           
+            GetComponent<BoxCollider>().enabled = false;
+          
         }
         SwitchAnimation();
       lastAttackTime  -= Time.deltaTime;
@@ -80,10 +81,10 @@ public class PlayerController : MonoBehaviour
         Vector3 target = (attackTarget.transform.position - transform.position).normalized;
 
         //原因：在结束循环时候不好判断接近值，lerp最后插值他们不会相等，无法跳出while循环，这很烦。
-        //解决：利用点乘的绝对值和四象限的cos的值比较大小，人物相差角度越小，dot值越大
-        while (Mathf.Abs(Vector3.Dot(transform.forward, target)) <= 0.95f)
+        //解决：利用点乘的绝对值和四象限的cos的值比较大小，人物相差角度越小，dot值越大。 Vector3.Dot(transform.forward, target)<0是考虑背对的时候第一个条件也满足的尴尬，背对攻击
+        while (Mathf.Abs(Vector3.Dot(transform.forward, target)) <= 0.95f|| Vector3.Dot(transform.forward, target)<0)
         {
-            transform.forward = Vector3.Lerp(transform.forward, target, 0.1f);
+            transform.forward = Vector3.Lerp(transform.forward, target, 0.05f);
             yield return null;
         }
 
@@ -148,3 +149,4 @@ public class PlayerController : MonoBehaviour
 
 
 }
+//playerattack不转头

@@ -86,34 +86,42 @@ public class CharacterStats : MonoBehaviour
 
 
 
-    public void TakeDamage(CharacterStats attacker,CharacterStats Defener)
+    public void TakeDamage(CharacterStats attacker,CharacterStats defener)
     {
 
-        int damage = Mathf.Max(attacker.CurrentDamage(attacker) - Defener.CurrentDefence,0);
+        int damage = Mathf.Max(attacker.CurrentDamage(attacker) - defener.CurrentDefence,0);
 
         CurrentHealth = Mathf.Max(CurrentHealth-damage,0);
 
+        
         if (attacker.isCritical) {
 
-            Defener.GetComponent<Animator>().SetTrigger("Hit");
+            defener.GetComponent<Animator>().SetTrigger("Hit");
         }
 
 
-        
+
+
         //TODO: Update UI,¾­Ñé
+
+        Instantiate(Resources.Load<GameObject>("KillDamageCanvas")).GetComponent<KillDamageCanvas>().DamageActive(attacker,defener,damage);
+
+
+
         
     }
 
-    private int CurrentDamage(CharacterStats attacker)
+    private int  CurrentDamage(CharacterStats attacker)
     {
-        int  coreDamage = attacker.AttackDamage;
+     float  coreDamage = attacker.AttackDamage;
 
         if (isCritical)
         {
             Debug.Log("±©»÷");
-            coreDamage *= (int)attacker.CriticalMultiplier;
+            coreDamage *= attacker.CriticalMultiplier;
+           
         }
-
-        return coreDamage;
+       
+        return (int ) coreDamage;
     }
 }

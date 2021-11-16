@@ -17,5 +17,5 @@ MonoBehaviour:
   coolDown: 5
   baseAttackDamage: 20
   changeRange: 2
-  criticalMultiplier: 1.2
-  criticalChance: 0.2
+  criticalMultiplier: 1.5
+  criticalChance: 0.3
