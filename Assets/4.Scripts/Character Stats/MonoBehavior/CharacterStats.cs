@@ -86,6 +86,17 @@ public class CharacterStats : MonoBehaviour
 
 
 
+    GameObject doTweenUICanvasList;
+    GameObject prefab_KillDamageCanvas;
+    
+
+    private void Awake()
+    {
+        //每个人物一开始都获取到一次
+        doTweenUICanvasList = GameObject.FindGameObjectWithTag("DoTweenUICanvasList");
+        prefab_KillDamageCanvas = Resources.Load<GameObject>("DoTweenUICanvas/KillDamageCanvas");
+
+    }
     public void TakeDamage(CharacterStats attacker,CharacterStats defener)
     {
 
@@ -102,9 +113,48 @@ public class CharacterStats : MonoBehaviour
 
 
 
-        //TODO: Update UI,经验
+        //TODO: Update UI,经验,DoTweenUI
 
-        Instantiate(Resources.Load<GameObject>("KillDamageCanvas")).GetComponent<KillDamageCanvas>().DamageActive(attacker,defener,damage);
+
+
+
+        //对象池
+        if (doTweenUICanvasList)
+        {
+            if (doTweenUICanvasList.transform.childCount > 0)
+            {
+
+                GameObject gg = ChildObj(doTweenUICanvasList);
+                if (gg)
+                {
+                    gg.SetActive(true);
+
+                    gg.GetComponent<KillDamageCanvas>().DamageActive(attacker, defener, damage);
+                }
+                else { Instantiate(prefab_KillDamageCanvas, GameObject.FindGameObjectWithTag("DoTweenUICanvasList").transform).GetComponent<KillDamageCanvas>().DamageActive(attacker, defener, damage); }
+               
+            }
+
+
+            else
+            {
+                
+                Instantiate(prefab_KillDamageCanvas, GameObject.FindGameObjectWithTag("DoTweenUICanvasList").transform).GetComponent<KillDamageCanvas>().DamageActive(attacker, defener, damage);
+
+
+            }
+
+
+
+        }
+
+
+
+
+
+
+
+       
 
 
 
@@ -123,5 +173,27 @@ public class CharacterStats : MonoBehaviour
         }
        
         return (int ) coreDamage;
+    }
+
+
+
+
+
+    public GameObject ChildObj(GameObject doTweenUICanvasList)
+    {
+
+        for (int i = 0; i < doTweenUICanvasList.transform.childCount; i++)
+        {
+
+            if (doTweenUICanvasList.transform.GetChild(i).gameObject.activeSelf == false)
+            {
+                return doTweenUICanvasList.transform.GetChild(i).gameObject;
+
+            }
+        
+
+        }
+        return null;
+       
     }
 }

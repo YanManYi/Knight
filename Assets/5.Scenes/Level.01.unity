@@ -189,7 +189,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5819041}
-  m_LocalRotation: {x: 0.13868958, y: 0.114059985, z: -0.016082456, w: 0.9836142}
+  m_LocalRotation: {x: 0.13868959, y: 0.114060014, z: -0.01608246, w: 0.9836142}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1036,7 +1036,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.13868959, y: 0.11405999, z: -0.01608246, w: 0.9836142}
+  m_LocalRotation: {x: 0.13868959, y: 0.11406002, z: -0.016082464, w: 0.9836142}
   m_LocalPosition: {x: -6.296116, y: 11.3, z: -9.851561}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1459,6 +1459,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1545029742
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1545029743}
+  m_Layer: 0
+  m_Name: DeTweenUICanvasList
+  m_TagString: DoTweenUICanvasList
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1545029743
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545029742}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1848060253
 GameObject:
   m_ObjectHideFlags: 3
@@ -1525,7 +1555,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1848060253}
-  m_LocalRotation: {x: 0.19481075, y: 0.112951316, z: -0.022590268, w: 0.9740536}
+  m_LocalRotation: {x: 0.19481072, y: 0.112951346, z: -0.022590267, w: 0.9740536}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -65090,6 +65120,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 963194228}
     m_Modifications:
+    - target: {fileID: 7672999793110518756, guid: 3a5268792f30804449e225da0ef11635, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7672999793110518757, guid: 3a5268792f30804449e225da0ef11635, type: 3}
       propertyPath: m_RootOrder
       value: 0

@@ -10,23 +10,25 @@ public class KillDamageCanvas : MonoBehaviour
     Text textCom;
     Transform camera_;
 
-   
 
-    private void Awake()
-    {
-        textCom = GetComponentInChildren<Text>();
-
-        textCom.color = new Color(0, 1, 0);
-
-
-       
-    }
+    //因为利用对象池，需要重复开启应该写在OnEnable
+    //private void Awake()
+    //{
+    //    textCom = GetComponentInChildren<Text>();
+    //    textCom.color = new Color(0, 0, 1);
+    // textCom.transform.position.Scale(new Vector3(1f, 1f, 1f));
+    //}
     private void Start()
     {
-        camera_ = FindObjectOfType<Camera>().transform;
- 
-     
-       
+        camera_ = FindObjectOfType<Camera>().transform;       
+    }
+
+    private void OnEnable()
+    {
+        textCom = GetComponentInChildren<Text>();
+        textCom.color = new Color(0, 0, 1,1);
+        textCom.transform.position.Scale(new Vector3(1f, 1f, 1f));
+
     }
 
 
@@ -38,7 +40,7 @@ public class KillDamageCanvas : MonoBehaviour
 
 
     /// <summary>
-    /// 
+    /// DoTween显示Damage
     /// </summary>
     /// <param name="attacker"></param>
     /// <param name="defener"></param>
@@ -57,21 +59,31 @@ public class KillDamageCanvas : MonoBehaviour
         transform.position = defener.transform.position + Vector3.up ;//世界物体遮盖可以多一个深度相机显示
 
 
-        //transform.DOMove(
-        //    transform.position+ new Vector3 (0,-0.1f,0),0.5f).OnComplete(() => {
-        //       textCom.DOFade(0.2f, 2f);
-        //   transform.DOMove( transform.position + new Vector3(0, 3, 0),2 ).OnComplete(() => { Destroy(gameObject); });
-        //   });
-        
-        //改换canvas自身y轴的移动
 
-        transform.DOMove(
-            transform.position + transform.up*-0.1f, 0.5f).OnComplete(() => {
+        //根据canvas自身y轴的移动
+
+        transform.DOMove( transform.position + transform.up * -0.1f, 0.5f). OnComplete      
+          (
+
+            () => 
+            {
                 textCom.DOFade(0f, 1.5f);
-                transform.DOMove(transform.position +transform.up * 1.5f + transform.right * (Random.value <= 0.5f ? Random.value : -Random.value), 1.5f).OnComplete(() => {
-                    Destroy(gameObject);//这里的Canvas可以优化重复利用，优化的事情以后再说
-                });
-            });
+                Vector3 vec = transform.position + transform.up * 1.5f + transform.right * (Random.value <= 0.5f ? Random.value : -Random.value);
+
+            transform.DOMove(vec, 1.5f).OnComplete
+            (
+                () => 
+            {
+               //这里的DoTweenCanvas可以优化重复利用缓冲池，也叫对象池   
+                gameObject.SetActive(false);
+            }
+
+            );                         
+                
+            }
+
+
+          );
 
 
 
