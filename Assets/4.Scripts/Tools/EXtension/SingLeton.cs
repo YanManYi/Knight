@@ -23,7 +23,9 @@ public class SingLeton<T> : MonoBehaviour where T : SingLeton<T>
 
     //好的属性和方法 
 
-    // 判断是否生成单例
+    /// <summary>
+    /// 判断是否生成单例,因为退出编辑模式的时候单例丢失报空的编辑器错误，使用这个以此判断
+    /// </summary>
     public static bool IsInitialized
     {
         get { return instance != null; }

@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         characterStats = GetComponent<CharacterStats>();
+       
     }
 
     private void Start()
@@ -28,6 +29,8 @@ public class PlayerController : MonoBehaviour
         //TODO
         MouseManager.Instance.OnMouseClicked += MoveToTarget;
         MouseManager.Instance.OnEnemyClicked += EventAttack;
+
+        GameManager.Instance.RigisterPlayer(characterStats);
     }
 
     private void Update()
@@ -36,7 +39,8 @@ public class PlayerController : MonoBehaviour
         if (isDie)
         {
             GetComponent<BoxCollider>().enabled = false;
-          
+           GameManager.Instance.NotifyObserver();
+           
         }
         SwitchAnimation();
       lastAttackTime  -= Time.deltaTime;
@@ -48,6 +52,7 @@ public class PlayerController : MonoBehaviour
     /// <param name="targetPoint">地面坐标</param>
     public void MoveToTarget(Vector3 target)
     {
+        if (isDie) return;
         StopCoroutine("MoveToAttackTarget");
         agent.isStopped = false;
         agent.SetDestination(target);
@@ -59,6 +64,7 @@ public class PlayerController : MonoBehaviour
     /// <param name="attackTarget">攻击目标</param>
     public void EventAttack(GameObject target)
     {
+        if (isDie) return;
         if (target)
         {
 
@@ -84,9 +90,10 @@ public class PlayerController : MonoBehaviour
         //解决：利用点乘的绝对值和四象限的cos的值比较大小，人物相差角度越小，dot值越大。 Vector3.Dot(transform.forward, target)<0是考虑背对的时候第一个条件也满足的尴尬，背对攻击
         while (Mathf.Abs(Vector3.Dot(transform.forward, target)) <= 0.95f|| Vector3.Dot(transform.forward, target)<0)
         {
-            transform.forward = Vector3.Lerp(transform.forward, target, 0.05f);
+            transform.forward = Vector3.Lerp(transform.forward, target, 0.1f);
             yield return null;
         }
+        transform.LookAt(attackTarget.transform);
 
         //TODO:根据武器长度修改攻击距离
         while (Vector3.Distance(attackTarget.transform.position, transform.position) > characterStats .AttackRange)
@@ -112,12 +119,21 @@ public class PlayerController : MonoBehaviour
 
             //暴击判断
            characterStats.isCritical = Random.value <= characterStats.CriticalChance;
-            anim.SetBool("Critical",characterStats.isCritical);
+           
 
-            anim.SetTrigger("Skill01");           
-            anim.SetTrigger("Skill02");
-          
 
+            //skill03  
+            if (Random.value <= characterStats.CriticalChance * 0.5f)
+            {
+                anim.SetTrigger("Skill03");
+            }
+            else {
+
+                anim.SetBool("Critical", characterStats.isCritical);
+
+                anim.SetTrigger("Skill01");
+                anim.SetTrigger("Skill02");
+            }
 
         }
 
@@ -144,7 +160,29 @@ public class PlayerController : MonoBehaviour
         CharacterStats targetStats = attackTarget.GetComponent<CharacterStats>();
 
 
-        targetStats.TakeDamage(characterStats,targetStats);
+       
+        //如果skill03动画攻击，就需要群攻目标
+
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Attack03"))
+        {
+            var v = Physics.OverlapSphere(transform.position, 2.1f, 1 << LayerMask.NameToLayer("Enemy"));
+            //360°的敌人都在范围
+            for (int i = 0; i < v.Length; i++)
+            {
+                //在正前方120°才造成伤害
+                if (Vector3.Dot(transform.forward, v[i].transform.position - transform.position) >= 0.5f)
+                {
+                    targetStats.TakeDamage(characterStats, v[i].GetComponent<CharacterStats>());
+                }
+            }
+
+
+        }
+        else
+        {
+            targetStats.TakeDamage(characterStats, targetStats);
+
+        }
     }
 
 

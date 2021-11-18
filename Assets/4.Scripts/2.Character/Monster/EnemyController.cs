@@ -6,7 +6,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(BoxCollider))]
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : MonoBehaviour,IEndGameObserver
 {
 
     private  EnemyBaseState currentState;
@@ -96,6 +96,18 @@ public class EnemyController : MonoBehaviour
         else
             TransitionToState(guardState);
     }
+
+    private void OnEnable()
+    {
+        GameManager.Instance.AddObserver(this);
+    }
+    private void OnDisable()
+    {
+        if (!GameManager.IsInitialized) return;
+        GameManager.Instance.RemoveObserver(this);
+    }
+
+
     private void Update()
     {
         isDie = characterStats.CurrentHealth == 0;
@@ -196,5 +208,16 @@ public class EnemyController : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, sightRadius);
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position,patrolRadius);
+    }
+
+
+    /// <summary>
+    /// 接口实现，结束通知
+    /// </summary>
+    public void EndNotify()
+    {
+        agent.isStopped = true;
+        anim.SetBool("Win",true);
+        GetComponent<Collider>().enabled = false;
     }
 }

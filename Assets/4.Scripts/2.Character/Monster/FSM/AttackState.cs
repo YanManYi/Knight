@@ -35,7 +35,7 @@ public class AttackState :EnemyBaseState
                 {
 
                     enemy.lastAttackTime = enemy.characterStats.CoolDown;
-                    Debug.Log(enemy.characterStats.CoolDown);
+                  
                     //±©»÷ÅÐ¶Ï
 
                     enemy.characterStats.isCritical = Random.value <= enemy.characterStats.CriticalChance;

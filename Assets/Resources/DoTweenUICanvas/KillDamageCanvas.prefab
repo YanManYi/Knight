@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6693722729377620887}
   - component: {fileID: 6693722729377620880}
   - component: {fileID: 6693722729377620884}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: KillDamageCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 6693722730502081057}
   - component: {fileID: 6693722730502081063}
   - component: {fileID: 6693722730502081056}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 6693722730816148727}
   - component: {fileID: 6693722730816148725}
   - component: {fileID: 6693722730816148726}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: KillDemo
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -19,7 +19,11 @@ public class MouseManager : SingLeton<MouseManager>
     RaycastHit hitInfo;
     public LayerMask layerMask;
 
-  
+    protected override void Awake()
+    {
+        base.Awake();
+      //  DontDestroyOnLoad(this);
+    }
 
 
     private void Update()

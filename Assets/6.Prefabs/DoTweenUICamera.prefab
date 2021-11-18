@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7672999793110518763}
   - component: {fileID: 7672999793110518756}
   m_Layer: 0
-  m_Name: DamageUICamera
+  m_Name: DoTweenUICamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 32
+    m_Bits: 256
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

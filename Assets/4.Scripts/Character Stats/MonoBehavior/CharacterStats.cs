@@ -97,12 +97,17 @@ public class CharacterStats : MonoBehaviour
         prefab_KillDamageCanvas = Resources.Load<GameObject>("DoTweenUICanvas/KillDamageCanvas");
 
     }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="attacker"></param>
+    /// <param name="defener"></param>
     public void TakeDamage(CharacterStats attacker,CharacterStats defener)
     {
 
         int damage = Mathf.Max(attacker.CurrentDamage(attacker) - defener.CurrentDefence,0);
 
-        CurrentHealth = Mathf.Max(CurrentHealth-damage,0);
+        defener. CurrentHealth = Mathf.Max(defener.CurrentHealth - damage,0);
 
         
         if (attacker.isCritical) {
