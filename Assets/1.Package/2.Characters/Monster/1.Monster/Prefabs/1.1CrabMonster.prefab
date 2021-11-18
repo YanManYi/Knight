@@ -588,7 +588,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 237e39fd7ba32fb4ea2276de655ac3f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterData: {fileID: 11400000, guid: 57e81f968f6cfd24294ed4408faa48ec, type: 2}
+  templateData: {fileID: 11400000, guid: 57e81f968f6cfd24294ed4408faa48ec, type: 2}
+  characterData: {fileID: 0}
   attackData: {fileID: 11400000, guid: 6d552dceafb5e844ba110b9710787e5f, type: 2}
   isCritical: 0
 --- !u!65 &1887373216
@@ -1237,7 +1238,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6928589415477418822}
   m_LocalRotation: {x: 6.245005e-17, y: -4.5102817e-17, z: 0.51365745, w: 0.85799533}
-  m_LocalPosition: {x: -0.13542716, y: 4.2632563e-16, z: -5.059492e-18}
+  m_LocalPosition: {x: -0.13542716, y: 4.6185276e-16, z: -6.217249e-17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6928589415477905184}

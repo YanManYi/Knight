@@ -6,7 +6,7 @@ public class PatrolState : EnemyBaseState
 {
     public override void EnterState(EnemyController enemy)
     {
-        Debug.Log("进入巡逻状态");
+      
         enemy.agent.speed = enemy.InitSpeed;
         enemy.isAttack = false;
         enemy.agent.isStopped = false;//用于不是攻击状态下突然进入，player死亡
@@ -14,6 +14,7 @@ public class PatrolState : EnemyBaseState
 
     public override void OnUpdate(EnemyController enemy)
     {
+     
 
         if (Vector3.Distance(enemy.wayPoint, enemy.transform.position) <= enemy.agent.stoppingDistance)
         {

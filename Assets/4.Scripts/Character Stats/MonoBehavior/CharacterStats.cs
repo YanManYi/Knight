@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
-    public CharacterData_SO characterData;
+    public CharacterData_SO templateData;
+ [Header("保持Null状态")]
+    public CharacterData_SO characterData;//等待被赋值，如果直接添加就会真实修改CharacterStats文件数据
     public AttackData_SO attackData;
 
     [HideInInspector]
@@ -92,6 +94,8 @@ public class CharacterStats : MonoBehaviour
 
     private void Awake()
     {
+        if (templateData != null) characterData = Instantiate(templateData);
+
         //每个人物一开始都获取到一次
         doTweenUICanvasList = GameObject.FindGameObjectWithTag("DoTweenUICanvasList");
         prefab_KillDamageCanvas = Resources.Load<GameObject>("DoTweenUICanvas/KillDamageCanvas");

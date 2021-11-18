@@ -7,7 +7,9 @@ public class AttackData_SO : ScriptableObject
 
 
     public float attackRange;
+    [Header("Monster有远程攻击的情况赋值，还需要修改状态机里的Attack02条件")]
     public float skillRange;
+    [Space]
     public float coolDown;
 
     //public int minDamage;

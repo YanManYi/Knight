@@ -6,8 +6,8 @@ public class AttackState :EnemyBaseState
 {
     public override void EnterState(EnemyController enemy)
     {
-        Debug.Log("¹¥»÷×´Ì¬");
-        enemy.agent.speed *= 1.5f;
+      
+        enemy.agent.speed +=0.5f;
         enemy.isWalk = true;
         enemy.isAttack = true;
         enemy.remainLookAt = enemy.durationLookAt;

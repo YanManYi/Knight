@@ -6,7 +6,7 @@ public class GuardState : EnemyBaseState
 {
     public override void EnterState(EnemyController enemy)
     {
-        Debug.Log("½øÈëÕ¾×®×´Ì¬");
+       
         enemy.agent.speed=enemy.InitSpeed;
         enemy.isAttack = false;
 
@@ -17,7 +17,7 @@ public class GuardState : EnemyBaseState
 
     public override void OnUpdate(EnemyController enemy)
     {
-
+        Debug.Log("½øÈëÕ¾×®×´Ì¬");
         if (Vector3.Distance(enemy.InitPoint, enemy.transform.position) <= enemy.agent.stoppingDistance)
         {
 

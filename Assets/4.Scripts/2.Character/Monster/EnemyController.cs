@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(CharacterStats))]
 
 public class EnemyController : MonoBehaviour,IEndGameObserver
 {
@@ -149,6 +150,7 @@ public class EnemyController : MonoBehaviour,IEndGameObserver
 
    public  void GetNewWayPoint()
     {
+
        remainLookAt = durationLookAt;
         float randomX = Random.Range(-patrolRadius,patrolRadius);
         float randomZ = Random.Range(-patrolRadius,patrolRadius);
@@ -217,7 +219,10 @@ public class EnemyController : MonoBehaviour,IEndGameObserver
     public void EndNotify()
     {
         agent.isStopped = true;
+       
+        agent.SetDestination(transform.position);
         anim.SetBool("Win",true);
         GetComponent<Collider>().enabled = false;
+        Debug.Log("cfjr");
     }
 }
