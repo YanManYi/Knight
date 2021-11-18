@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CharacterStats : MonoBehaviour
 {
@@ -115,7 +116,7 @@ public class CharacterStats : MonoBehaviour
 
         
         if (attacker.isCritical) {
-
+            defener.GetComponent<NavMeshAgent>().isStopped = true;
             defener.GetComponent<Animator>().SetTrigger("Hit");
         }
 

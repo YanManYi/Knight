@@ -26,6 +26,7 @@ public class EnemyController : MonoBehaviour,IEndGameObserver
     /// </summary>
     public void TransitionToState(EnemyBaseState state)
     {
+       
         currentState = state;
         currentState.EnterState(this);//相当于Start函数
     }
@@ -91,7 +92,7 @@ public class EnemyController : MonoBehaviour,IEndGameObserver
         InitPoint = transform.position;
         InitRotation = transform.rotation;
 
-
+        
         if (isPatrol)
             TransitionToState(patrolState);
         else
@@ -123,7 +124,7 @@ public class EnemyController : MonoBehaviour,IEndGameObserver
             //问题：这里的会重复进入状态,解决：&&currentState!=attackState解决
             TransitionToState(attackState);
         }
-
+        
         currentState.OnUpdate(this);
 
         SwitchAnimation();
@@ -188,7 +189,7 @@ public class EnemyController : MonoBehaviour,IEndGameObserver
 
 
     //Animation event
-    void Hit()
+   public  void Hit()
     {
         if (attackTarget)
         {

@@ -543,8 +543,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPatrol: 1
-  sightRadius: 5
-  patrolRadius: 3
+  sightRadius: 7
+  patrolRadius: 5
   durationLookAt: 3
   remainLookAt: 0
   lastAttackTime: 0

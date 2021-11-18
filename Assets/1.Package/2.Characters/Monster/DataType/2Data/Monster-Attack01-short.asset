@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae822f874ff570c4d9858614337cf363, type: 3}
-  m_Name: MonsterAttack-long
+  m_Name: Monster-Attack01-short
   m_EditorClassIdentifier: 
-  attackRange: 3
-  skillRange: 0
+  attackRange: 2
+  skillRange: 7
   coolDown: 5
   baseAttackDamage: 20
   changeRange: 2

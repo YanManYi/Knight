@@ -83,7 +83,7 @@ public class AttackState :EnemyBaseState
             //½ü¾àÀë¹¥»÷
             enemy.anim.SetTrigger("Skill01");
         }
-
+        else 
         if (enemy.TargetInSkillRange())
         {
 

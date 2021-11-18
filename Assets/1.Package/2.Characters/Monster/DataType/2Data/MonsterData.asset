@@ -9,13 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae822f874ff570c4d9858614337cf363, type: 3}
-  m_Name: MonsterAttack-short
+  m_Script: {fileID: 11500000, guid: 31bda4694528a2c44a667b6e96de12a6, type: 3}
+  m_Name: MonsterData
   m_EditorClassIdentifier: 
-  attackRange: 2
-  skillRange: 0
-  coolDown: 5
-  baseAttackDamage: 20
-  changeRange: 2
-  criticalMultiplier: 1.5
-  criticalChance: 0.3
+  maxHealth: 100
+  currentHealth: 100
+  baseDefence: 0
+  currentDefence: 0
