@@ -5,7 +5,7 @@ using UnityEngine;
 public class AttackData_SO : ScriptableObject
 {
 
-
+    [Header("Monster大模型基本攻击距离较远的需要long-Data")]
     public float attackRange;
     [Header("Monster有远程攻击的情况赋值，还需要修改状态机里的Attack02条件")]
     public float skillRange;

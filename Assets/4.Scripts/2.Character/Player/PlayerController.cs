@@ -104,11 +104,6 @@ public class PlayerController : MonoBehaviour
         }
 
 
-       
-
-
-
-
         //Attack
         agent.isStopped = true;
 
@@ -170,7 +165,7 @@ public class PlayerController : MonoBehaviour
             for (int i = 0; i < v.Length; i++)
             {
                 //在正前方120°才造成伤害
-                if (Vector3.Dot(transform.forward, v[i].transform.position - transform.position) >= 0.5f)
+                if (Vector3.Dot(transform.forward, (v[i].transform.position - transform.position).normalized) >= 0.5f)
                 {
                     targetStats.TakeDamage(characterStats, v[i].GetComponent<CharacterStats>());
                 }
@@ -180,7 +175,9 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            targetStats.TakeDamage(characterStats, targetStats);
+            //在正前方49°才造成伤害,Cos24.6=0.9
+            if (Vector3.Dot(transform.forward, (attackTarget.transform.position - transform.position).normalized) >= 0.9f)
+                targetStats.TakeDamage(characterStats, targetStats);
 
         }
     }

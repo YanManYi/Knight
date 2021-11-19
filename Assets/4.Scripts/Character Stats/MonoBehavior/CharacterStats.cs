@@ -116,8 +116,12 @@ public class CharacterStats : MonoBehaviour
 
         
         if (attacker.isCritical) {
-            defener.GetComponent<NavMeshAgent>().isStopped = true;
             defener.GetComponent<Animator>().SetTrigger("Hit");
+            defener.GetComponent<NavMeshAgent>().isStopped = true;
+            defener.GetComponent<NavMeshAgent>().velocity = (attacker.transform.position - defener.transform.position).normalized * -10;
+
+           
+            defener.transform.LookAt(attacker.transform);
         }
 
 

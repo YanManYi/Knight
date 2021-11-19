@@ -18,7 +18,7 @@ public class Fx_Fire : MonoBehaviour
         {
             Destroy(gameObject);
 
-            parent_.Hit();
+            parent_.HitSkill02();
         }
 
         if (other.gameObject) Destroy(gameObject);

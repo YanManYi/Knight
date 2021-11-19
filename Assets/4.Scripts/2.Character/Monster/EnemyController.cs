@@ -193,13 +193,34 @@ public class EnemyController : MonoBehaviour,IEndGameObserver
     {
         if (attackTarget)
         {
-            CharacterStats targetStats = attackTarget.GetComponent<CharacterStats>();
+            //在正前方49°才造成伤害,Cos24.6=0.9
+            if (Vector3.Dot(transform.forward, (attackTarget.transform.position - transform.position).normalized) >= 0.9f)
+            {
+                if (Vector3.Distance(attackTarget.transform.position,transform.position)<=characterStats.AttackRange) {
+                    CharacterStats targetStats = attackTarget.GetComponent<CharacterStats>();
 
-            targetStats.TakeDamage(characterStats, targetStats);
+                    targetStats.TakeDamage(characterStats, targetStats);
 
+                }
+            }
         }
 
 
+
+
+    }
+
+    /// <summary>
+    /// 给火球击打目标调用
+    /// </summary>
+    public void HitSkill02() {
+        if (attackTarget)
+        {
+
+        CharacterStats targetStats = attackTarget.GetComponent<CharacterStats>();
+
+        targetStats.TakeDamage(characterStats, targetStats);
+        }
 
 
     }
