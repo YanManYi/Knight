@@ -189,6 +189,9 @@ public class EnemyController : MonoBehaviour,IEndGameObserver
 
 
     //Animation event
+    /// <summary>
+    /// 有单独技能的怪物，调用单独怪物自己的脚本里的event事件触发
+    /// </summary>
    public  void Hit()
     {
         if (attackTarget)
@@ -213,6 +216,7 @@ public class EnemyController : MonoBehaviour,IEndGameObserver
     /// <summary>
     /// 给火球击打目标调用
     /// </summary>
+    [HideInInspector]
     public void HitSkill02() {
         if (attackTarget)
         {
