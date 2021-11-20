@@ -7133,6 +7133,7 @@ GameObject:
   - component: {fileID: 1571264321482083932}
   - component: {fileID: 2815030545420939867}
   - component: {fileID: 3214859188088377095}
+  - component: {fileID: 1656058943330246802}
   m_Layer: 7
   m_Name: 2.4Fire Dragon-Purple
   m_TagString: Enemy
@@ -7196,6 +7197,7 @@ Transform:
   - {fileID: 400048}
   - {fileID: 400026}
   - {fileID: 400100}
+  - {fileID: 2050774819698826464}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7299,7 +7301,19 @@ MonoBehaviour:
   isDie: 0
   attackTarget: {fileID: 0}
   InitSpeed: 0
-  Fx_fireFore: 12
+  Fx_fireFore: 15
+--- !u!114 &1656058943330246802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37b3e8083f3c8a54a806c213484e1a36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &100156
 GameObject:
   m_ObjectHideFlags: 0
@@ -13326,4 +13340,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 400126}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1401012090804183221
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2050774819698826464}
+  m_Layer: 7
+  m_Name: HealthPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2050774819698826464
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401012090804183221}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.55, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400154}
+  m_RootOrder: 45
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

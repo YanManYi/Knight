@@ -6,13 +6,21 @@ using UnityEngine.AI;
 
 public class CharacterStats : MonoBehaviour
 {
+    public event Action<int, int> UpdateHealthBarOnAttack;
+
+
     public CharacterData_SO templateData;
- [Header("保持Null状态")]
+    [Header("保持Null状态")]
     public CharacterData_SO characterData;//等待被赋值，如果直接添加就会真实修改CharacterStats文件数据
+    [Space]
+    [Header("Monster又不升级攻击面板，可有可无")]
+    public AttackData_SO TempAttackData;
+    [Header("Player保持Null状态")]
     public AttackData_SO attackData;
 
     [HideInInspector]
     public bool isCritical;
+
 
     #region characterData读取数据
     public int MaxHealth
@@ -91,36 +99,40 @@ public class CharacterStats : MonoBehaviour
 
     GameObject doTweenUICanvasList;
     GameObject prefab_KillDamageCanvas;
-    
+
 
     private void Awake()
     {
         if (templateData != null) characterData = Instantiate(templateData);
+        if (TempAttackData != null) attackData = Instantiate(TempAttackData);
+
+        characterData.attackData = attackData;//升级用
+
 
         //每个人物一开始都获取到一次
         doTweenUICanvasList = GameObject.FindGameObjectWithTag("DoTweenUICanvasList");
         prefab_KillDamageCanvas = Resources.Load<GameObject>("DoTweenUICanvas/KillDamageCanvas");
-
     }
     /// <summary>
     /// 
     /// </summary>
     /// <param name="attacker"></param>
     /// <param name="defener"></param>
-    public void TakeDamage(CharacterStats attacker,CharacterStats defener)
+    public void TakeDamage(CharacterStats attacker, CharacterStats defener)
     {
 
-        int damage = Mathf.Max(attacker.CurrentDamage(attacker) - defener.CurrentDefence,0);
+        int damage = Mathf.Max(attacker.CurrentDamage(attacker) - defener.CurrentDefence, 0);
 
-        defener. CurrentHealth = Mathf.Max(defener.CurrentHealth - damage,0);
+        defener.CurrentHealth = Mathf.Max(defener.CurrentHealth - damage, 0);
 
-        
-        if (attacker.isCritical) {
+
+        if (attacker.isCritical)
+        {
             defener.GetComponent<Animator>().SetTrigger("Hit");
             defener.GetComponent<NavMeshAgent>().isStopped = true;
             defener.GetComponent<NavMeshAgent>().velocity = (attacker.transform.position - defener.transform.position).normalized * -10;
 
-           
+
             defener.transform.LookAt(attacker.transform);
         }
 
@@ -129,8 +141,12 @@ public class CharacterStats : MonoBehaviour
 
         //TODO: Update UI,经验,DoTweenUI
 
+        UpdateHealthBarOnAttack?.Invoke(CurrentHealth, MaxHealth);
 
-
+        if (CurrentHealth <= 0)
+        {
+            attacker.characterData.UpdateExp(characterData.killScore);
+        }
 
         //对象池
         if (doTweenUICanvasList)
@@ -146,13 +162,13 @@ public class CharacterStats : MonoBehaviour
                     gg.GetComponent<KillDamageCanvas>().DamageActive(attacker, defener, damage);
                 }
                 else { Instantiate(prefab_KillDamageCanvas, GameObject.FindGameObjectWithTag("DoTweenUICanvasList").transform).GetComponent<KillDamageCanvas>().DamageActive(attacker, defener, damage); }
-               
+
             }
 
 
             else
             {
-                
+
                 Instantiate(prefab_KillDamageCanvas, GameObject.FindGameObjectWithTag("DoTweenUICanvasList").transform).GetComponent<KillDamageCanvas>().DamageActive(attacker, defener, damage);
 
 
@@ -168,25 +184,25 @@ public class CharacterStats : MonoBehaviour
 
 
 
-       
 
 
 
-        
+
+
     }
 
-    private int  CurrentDamage(CharacterStats attacker)
+    private int CurrentDamage(CharacterStats attacker)
     {
-     float  coreDamage = attacker.AttackDamage;
+        float coreDamage = attacker.AttackDamage;
 
         if (isCritical)
         {
             Debug.Log("暴击");
             coreDamage *= attacker.CriticalMultiplier;
-           
+
         }
-       
-        return (int ) coreDamage;
+
+        return (int)coreDamage;
     }
 
 
@@ -204,10 +220,10 @@ public class CharacterStats : MonoBehaviour
                 return doTweenUICanvasList.transform.GetChild(i).gameObject;
 
             }
-        
+
 
         }
         return null;
-       
+
     }
 }

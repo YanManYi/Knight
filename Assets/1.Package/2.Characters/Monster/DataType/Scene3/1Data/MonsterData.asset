@@ -16,3 +16,10 @@ MonoBehaviour:
   currentHealth: 1600
   baseDefence: 160
   currentDefence: 160
+  killScore: 100
+  currentLevel: 0
+  maxLevel: 0
+  baseExp: 0
+  currentExp: 0
+  levelBuff: 0
+  attackData: {fileID: 0}

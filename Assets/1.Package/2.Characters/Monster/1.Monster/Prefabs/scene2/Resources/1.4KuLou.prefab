@@ -230,6 +230,7 @@ GameObject:
   - component: {fileID: 6148641420656204063}
   - component: {fileID: 4657442625223752976}
   - component: {fileID: 4718872016481471369}
+  - component: {fileID: 9051080064323929670}
   m_Layer: 7
   m_Name: 1.4KuLou
   m_TagString: Enemy
@@ -252,6 +253,7 @@ Transform:
   - {fileID: 4350418880833688}
   - {fileID: 4986886623875948}
   - {fileID: 4581850259009874}
+  - {fileID: 7038908970860552725}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -323,7 +325,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   templateData: {fileID: 11400000, guid: ad997fdb6e9697f4586160d673363ece, type: 2}
   characterData: {fileID: 0}
-  attackData: {fileID: 11400000, guid: 8d985031caab88c42bb9814b3907001b, type: 2}
+  TempAttackData: {fileID: 0}
+  attackData: {fileID: 11400000, guid: 4ea6677846a19c041813acda8751001e, type: 2}
   isCritical: 0
 --- !u!114 &4718872016481471369
 MonoBehaviour:
@@ -355,6 +358,18 @@ MonoBehaviour:
   isDie: 0
   attackTarget: {fileID: 0}
   InitSpeed: 0
+--- !u!114 &9051080064323929670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088474434442572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37b3e8083f3c8a54a806c213484e1a36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1109665426179172
 GameObject:
   m_ObjectHideFlags: 0
@@ -2188,4 +2203,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4489104701746824}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &905957661339296693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7038908970860552725}
+  m_Layer: 7
+  m_Name: HealthPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7038908970860552725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905957661339296693}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.228, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4333204578251230}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

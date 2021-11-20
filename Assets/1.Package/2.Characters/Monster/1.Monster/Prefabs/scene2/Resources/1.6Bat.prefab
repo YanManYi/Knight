@@ -263,6 +263,7 @@ GameObject:
   - component: {fileID: 2004954994}
   - component: {fileID: 2004954993}
   - component: {fileID: 2004954992}
+  - component: {fileID: 8720264667841994316}
   m_Layer: 7
   m_Name: 1.6Bat
   m_TagString: Enemy
@@ -283,6 +284,7 @@ Transform:
   m_Children:
   - {fileID: 4845277892128948}
   - {fileID: 4871487389712490}
+  - {fileID: 5391536675302057036}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -354,6 +356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   templateData: {fileID: 11400000, guid: ad997fdb6e9697f4586160d673363ece, type: 2}
   characterData: {fileID: 0}
+  TempAttackData: {fileID: 0}
   attackData: {fileID: 11400000, guid: 4ea6677846a19c041813acda8751001e, type: 2}
   isCritical: 0
 --- !u!114 &2004954992
@@ -386,6 +389,18 @@ MonoBehaviour:
   isDie: 0
   attackTarget: {fileID: 0}
   InitSpeed: 0
+--- !u!114 &8720264667841994316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123161434240648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37b3e8083f3c8a54a806c213484e1a36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1147369430959092
 GameObject:
   m_ObjectHideFlags: 0
@@ -1307,3 +1322,33 @@ Transform:
   m_Father: {fileID: 4425222797104840}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 2.7937741, y: -121.69517, z: 178.40756}
+--- !u!1 &4004877546478946488
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5391536675302057036}
+  m_Layer: 7
+  m_Name: HealthPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5391536675302057036
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4004877546478946488}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.55, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4158631881214898}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

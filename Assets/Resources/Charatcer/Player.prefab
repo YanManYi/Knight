@@ -11822,7 +11822,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   templateData: {fileID: 11400000, guid: 00f062e2add609f47ae1a36da0c7d9ff, type: 2}
   characterData: {fileID: 0}
-  attackData: {fileID: 11400000, guid: c1c96a91412e1fc4a877d91c17ef1786, type: 2}
+  TempAttackData: {fileID: 11400000, guid: c1c96a91412e1fc4a877d91c17ef1786, type: 2}
+  attackData: {fileID: 0}
   isCritical: 0
 --- !u!95 &4638237279587217398
 Animator:

@@ -1117,8 +1117,9 @@ GameObject:
   - component: {fileID: 2794979120651034747}
   - component: {fileID: 6162102675184556977}
   - component: {fileID: 8604301513449579021}
+  - component: {fileID: 8876475898827353909}
   m_Layer: 7
-  m_Name: 1.7.1Fire Demon-Red
+  m_Name: 2.3Fire Demon-yellow
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1157,6 +1158,7 @@ Transform:
   - {fileID: 400112}
   - {fileID: 400124}
   - {fileID: 400142}
+  - {fileID: 4976984369799160806}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1260,6 +1262,18 @@ MonoBehaviour:
   isDie: 0
   attackTarget: {fileID: 0}
   InitSpeed: 0
+--- !u!114 &8876475898827353909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37b3e8083f3c8a54a806c213484e1a36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &100074
 GameObject:
   m_ObjectHideFlags: 0
@@ -7310,3 +7324,33 @@ Transform:
   m_Father: {fileID: 400044}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -0.50856555, y: 0.43879893, z: 52.857628}
+--- !u!1 &1448538245637456875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4976984369799160806}
+  m_Layer: 7
+  m_Name: HealthPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4976984369799160806
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448538245637456875}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.15, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400072}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
