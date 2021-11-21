@@ -46,7 +46,7 @@ public class MainMenuCanvas : MonoBehaviour
     void ContinueGame() {
 
         //读取进度
-        Debug.Log("继续");
+       
         SceneController.Instance.TransitionToSaveLoadGame();
     }
 

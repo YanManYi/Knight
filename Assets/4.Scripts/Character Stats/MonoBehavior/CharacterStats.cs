@@ -108,7 +108,7 @@ public class CharacterStats : MonoBehaviour
 
         characterData.attackData = attackData;//升级用
 
-
+       
         //每个人物一开始都获取到一次
         doTweenUICanvasList = GameObject.FindGameObjectWithTag("DoTweenUICanvasList");
         prefab_KillDamageCanvas = Resources.Load<GameObject>("DoTweenUICanvas/KillDamageCanvas");

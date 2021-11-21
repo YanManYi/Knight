@@ -33,6 +33,7 @@ public class CharacterData_SO : ScriptableObject
     [HideInInspector]
     public AttackData_SO attackData;
 
+    
     public float LevelMultiplier { get { return 1 + (currentLevel - 1) * levelBuff; } }
 
     public void UpdateExp(int killScore)
