@@ -197,7 +197,7 @@ public class CharacterStats : MonoBehaviour
 
         if (isCritical)
         {
-            Debug.Log("±©»÷");
+            
             coreDamage *= attacker.CriticalMultiplier;
 
         }

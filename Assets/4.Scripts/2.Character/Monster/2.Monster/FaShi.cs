@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class FaShi : EnemyController
 {
@@ -15,11 +16,7 @@ public class FaShi : EnemyController
     {
         if (attackTarget)
         {
-            GameObject temp = Instantiate(  MonsterPrefabs[(int)Random.Range(0,3)] );
-            temp.transform.position = transform.forward;
-                
-
-
+            GameObject temp = Instantiate(  MonsterPrefabs[(int)Random.Range(0,3)],transform.position+transform.forward,Quaternion.identity );
         }
 
 

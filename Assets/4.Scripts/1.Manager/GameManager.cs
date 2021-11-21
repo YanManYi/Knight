@@ -9,7 +9,13 @@ public class GameManager : SingLeton<GameManager>
     public CharacterStats playerStats;
 
     //观察者列表,接口列表
-    List<IEndGameObserver> endGameObservers = new List<IEndGameObserver>();
+   public  List<IEndGameObserver> endGameObservers = new List<IEndGameObserver>();
+
+    protected override void Awake()
+    {
+        base.Awake();
+        DontDestroyOnLoad(this);
+    }
 
     //观察者模式流程,理一下思路：
 
@@ -53,6 +59,10 @@ public class GameManager : SingLeton<GameManager>
             observer.EndNotify();
         }
     }
+
+
+
+
 
 
 }

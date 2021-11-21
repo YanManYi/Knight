@@ -21,7 +21,7 @@ public class Fx_Fire : MonoBehaviour
             parent_.HitSkill02();
         }
 
-        if (other.gameObject) Destroy(gameObject);
+        
     }
 
 }

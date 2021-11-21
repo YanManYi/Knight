@@ -49,6 +49,7 @@ public class HealthBarUI : MonoBehaviour
     private void UpdateHealthMonthed(int currentHealth, int maxHealth)
     {
         if (currentStats.CurrentHealth <= 0) Destroy(healthUI.gameObject);
+
         StopCoroutine("enumerator");
         healthUI.gameObject.SetActive(true);
         StartCoroutine("enumerator");

@@ -8,8 +8,10 @@ public class PatrolState : EnemyBaseState
     {
       
         enemy.agent.speed = enemy.InitSpeed;
+        enemy.agent.SetDestination(enemy.InitPoint);
         enemy.isAttack = false;
         enemy.agent.isStopped = false;//用于不是攻击状态下突然进入，player死亡
+
     }
 
     public override void OnUpdate(EnemyController enemy)

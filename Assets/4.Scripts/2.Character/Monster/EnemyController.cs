@@ -91,7 +91,7 @@ public class EnemyController : MonoBehaviour,IEndGameObserver
          GetNewWayPoint();
         InitPoint = transform.position;
         InitRotation = transform.rotation;
-
+        wayPoint = InitPoint;
         
         if (isPatrol)
             TransitionToState(patrolState);
@@ -249,6 +249,6 @@ public class EnemyController : MonoBehaviour,IEndGameObserver
         agent.SetDestination(transform.position);
         anim.SetBool("Win",true);
         GetComponent<Collider>().enabled = false;
-        Debug.Log("cfjr");
+        
     }
 }

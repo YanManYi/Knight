@@ -28,7 +28,7 @@ public class SingLeton<T> : MonoBehaviour where T : SingLeton<T>
     /// </summary>
     public static bool IsInitialized
     {
-        get { return instance != null; }
+        get { return instance==null ?false:true; }
     }
 
 

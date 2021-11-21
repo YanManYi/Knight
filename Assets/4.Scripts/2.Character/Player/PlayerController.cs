@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour
@@ -21,16 +22,34 @@ public class PlayerController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         characterStats = GetComponent<CharacterStats>();
+
+        FindObjectOfType<CinemachineFreeLook>().Follow = transform.DG_FindChild("FollowPoint", transform);
+        FindObjectOfType<CinemachineFreeLook>().LookAt= transform.DG_FindChild("FollowPoint", transform); ;
+
        
     }
-
-    private void Start()
+    private void OnEnable()
     {
         //TODO
         MouseManager.Instance.OnMouseClicked += MoveToTarget;
         MouseManager.Instance.OnEnemyClicked += EventAttack;
 
         GameManager.Instance.RigisterPlayer(characterStats);
+    }
+
+    private void Start()
+    {
+   
+        SaveManager.Instance.LoadPlayerData();
+    }
+    private void OnDisable()
+    {
+        //防止编辑器报错
+        if (!GameManager.IsInitialized) return;
+
+        //去到另外一个场景需要注销订阅
+        MouseManager.Instance.OnMouseClicked -= MoveToTarget;
+        MouseManager.Instance.OnEnemyClicked -= EventAttack;
     }
 
     private void Update()

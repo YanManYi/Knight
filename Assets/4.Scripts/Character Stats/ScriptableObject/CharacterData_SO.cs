@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName ="New Data",menuName ="Character Stats/Data")]
+[CreateAssetMenu(fileName = "New Data", menuName = "Character Stats/Data")]
 public class CharacterData_SO : ScriptableObject
 {
 
@@ -35,7 +35,7 @@ public class CharacterData_SO : ScriptableObject
 
     public float LevelMultiplier { get { return 1 + (currentLevel - 1) * levelBuff; } }
 
-   public  void UpdateExp(int killScore)
+    public void UpdateExp(int killScore)
     {
 
         currentExp += killScore;
@@ -46,7 +46,7 @@ public class CharacterData_SO : ScriptableObject
     private void LeveUP()
     {
         //数据升级
-        currentLevel = Mathf.Clamp(currentLevel + 1,0,maxLevel) ;
+        currentLevel = Mathf.Clamp(currentLevel + 1, 0, maxLevel);
         baseExp += (int)(baseExp * LevelMultiplier);
 
         maxHealth *= 2;
@@ -55,11 +55,11 @@ public class CharacterData_SO : ScriptableObject
         baseDefence *= 2;
         currentDefence = baseDefence;
 
-        attackData.baseAttackDamage *=2;
+        attackData.baseAttackDamage *= 2;
         attackData.changeRange *= 2;
         attackData.criticalChance += 0.05f;
         attackData.criticalMultiplier += 0.2f;
-        Debug.Log("升级成功");
+       
 
     }
 }

@@ -22,7 +22,7 @@ public class MouseManager : SingLeton<MouseManager>
     protected override void Awake()
     {
         base.Awake();
-      //  DontDestroyOnLoad(this);
+     DontDestroyOnLoad(this);
     }
 
 
@@ -52,6 +52,9 @@ public class MouseManager : SingLeton<MouseManager>
                 case "Enemy":
                     Cursor.SetCursor(attack, new Vector2(16, 16), CursorMode.Auto);
                     break;
+                case "Portal":
+                    Cursor.SetCursor(doorway, new Vector2(16, 16), CursorMode.Auto);
+                    break;
 
                 default:
                     Cursor.SetCursor(arrow, new Vector2(16, 16), CursorMode.Auto);
@@ -78,7 +81,9 @@ public class MouseManager : SingLeton<MouseManager>
                     OnEnemyClicked?.Invoke(hitInfo.collider.gameObject);
                     break;
 
-
+                case "Portal":
+                    OnMouseClicked?.Invoke(hitInfo.point);
+                    break;
 
                 default:
                     break;
