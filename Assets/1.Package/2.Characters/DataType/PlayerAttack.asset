@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRange: 2
   skillRange: 0
-  coolDown: 0.7
+  coolDown: 1
   baseAttackDamage: 20
-  changeRange: 5
+  changeRange: 2
   criticalMultiplier: 2
-  criticalChance: 0.5
+  criticalChance: 0.3

@@ -38,7 +38,7 @@ public class MainMenuCanvas : MonoBehaviour
     void NewGame()
     {
         PlayerPrefs.DeleteAll();
-        Debug.Log("ÖØÐÂ");
+      
         SceneController.Instance.TransitionToFirstLevel();
 
     }
@@ -52,7 +52,7 @@ public class MainMenuCanvas : MonoBehaviour
 
     void QuitGame()
     {
-        Application.Quit(); Debug.Log("Àë¿ª");
+        Application.Quit(); 
     }
 
 

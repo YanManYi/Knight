@@ -503,7 +503,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   templateData: {fileID: 11400000, guid: 0d0c24551bf61d14a8cc6c92ccef616a, type: 2}
   characterData: {fileID: 0}
-  TempAttackData: {fileID: 0}
+  TempAttackData: {fileID: 11400000, guid: 70f5ab7b6ec5ea54792992f28f1a42c9, type: 2}
   attackData: {fileID: 11400000, guid: 70f5ab7b6ec5ea54792992f28f1a42c9, type: 2}
   isCritical: 0
 --- !u!114 &934481425
@@ -518,10 +518,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c189a166bf6e0e44bd1485a662b32ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPatrol: 0
-  sightRadius: 20
+  isPatrol: 1
+  sightRadius: 15
   patrolRadius: 5
-  durationLookAt: 3
+  durationLookAt: 5
   remainLookAt: 0
   lastAttackTime: 0
   wayPoint: {x: 0, y: 0, z: 0}

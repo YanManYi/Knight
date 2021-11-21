@@ -1230,7 +1230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   templateData: {fileID: 11400000, guid: 47d43254a88a3634d97a03a58e6b4e1e, type: 2}
   characterData: {fileID: 0}
-  TempAttackData: {fileID: 0}
+  TempAttackData: {fileID: 11400000, guid: 4e95fbedb034d1043aec001831337f72, type: 2}
   attackData: {fileID: 11400000, guid: 4e95fbedb034d1043aec001831337f72, type: 2}
   isCritical: 0
 --- !u!114 &8604301513449579021

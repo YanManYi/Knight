@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31bda4694528a2c44a667b6e96de12a6, type: 3}
   m_Name: MonsterData
   m_EditorClassIdentifier: 
-  maxHealth: 3200
-  currentHealth: 3200
-  baseDefence: 50
-  currentDefence: 50
+  maxHealth: 2500
+  currentHealth: 2500
+  baseDefence: 0
+  currentDefence: 0
   killScore: 100
   currentLevel: 0
   maxLevel: 0

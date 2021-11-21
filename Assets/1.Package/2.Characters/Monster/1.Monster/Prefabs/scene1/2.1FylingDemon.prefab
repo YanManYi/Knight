@@ -2294,7 +2294,7 @@ MonoBehaviour:
   isPatrol: 1
   sightRadius: 15
   patrolRadius: 5
-  durationLookAt: 3
+  durationLookAt: 5
   remainLookAt: 0
   lastAttackTime: 0
   wayPoint: {x: 0, y: 0, z: 0}
@@ -2309,7 +2309,7 @@ MonoBehaviour:
   isDie: 0
   attackTarget: {fileID: 0}
   InitSpeed: 0
-  Fx_fireFore: 12
+  Fx_fireFore: 15
 --- !u!114 &304124312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2324,7 +2324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   templateData: {fileID: 11400000, guid: 7ab926ccf18667e46afcd3079ef375e3, type: 2}
   characterData: {fileID: 0}
-  TempAttackData: {fileID: 0}
+  TempAttackData: {fileID: 11400000, guid: a81fadcb3bcd5b24ca580c1a249a19dc, type: 2}
   attackData: {fileID: 11400000, guid: a81fadcb3bcd5b24ca580c1a249a19dc, type: 2}
   isCritical: 0
 --- !u!65 &304124313

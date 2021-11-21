@@ -1,0 +1,31 @@
+
+Monster：
+（近距离攻击类型）：普通攻击skill01，skill02。skill02为暴击值
+
+（远近距离攻击类型）：skill01，skill02。两种技能都可以出暴击值
+
+（人物规避伤害）：1.正面左右各cos24.6°，也就是值大于0.9f的cos值可造成伤害 。2.距离在攻击范围内才生效
+
+Player：普通攻击skill01，skill02，skill03。skill02为暴击值，skill03范围正面180°攻击范围内敌人普攻和可能性暴击。
+
+PlayerData:
+Level01;	 health：100	defence：5	attack：20	波动：2	升级需要kill: (需要20)		经验加成buf:2	 暴击率：0.3f	倍数：2		CD::1	
+Level02;	 health：200	defence：10	attack：40	波动：4	升级需要kill:(需要60)		经验加成buf:2	 暴击率：0.3f	倍数：2		CD::1
+	
+Level03:	 health：400	defence：20	attack：80	波动：8	升级需要kill:(需要100)		经验加成buf:2	 暴击率：0.3f	倍数：2		CD::1
+Level04:	 health：800	defence：40	attack：160	波动：16	升级需要kill:(需要140)		经验加成buf:2	 暴击率：0.3f	倍数：2		CD::1
+
+Level05:	 health：1600	defence：80	attack：320	波动：32	升级需要kill:限制升级		经验加成buf:2	 暴击率：0.3f	倍数：2		CD::1
+
+EnemyData:
+	tpye01:	 health：100	defence：0	attack：15	波动：1		暴击率：0.1f	倍数：2		CD::4	kill:10
+	tpye02:	 health：200	defence：0	attack：25	波动：1		暴击率：0.1f	倍数：2		CD::4	kill:20
+							scene里面以上一共120Kill值（可以升级到3）
+
+	tpye01:	 health：400	defence：0	attack：50	波动：1		暴击率：0.2f	倍数：2		CD::10	kill:30
+	tpye02:	 health：800	defence：0	attack：80	波动：1		暴击率：0.2f	倍数：2		CD::10	kill:100
+
+	tpye01:	 health：1600	defence：0	attack：90	波动：1		暴击率：0.3f	倍数：2		CD::4	kill:100
+	tpye02:	 health：2500	defence：0	attack：120	波动：1		暴击率：0.3f	倍数：2		CD::4	kill:100
+
+	Boss:	 health：5000	defence：0	attack：150	波动：1		暴击率：0.4f	倍数：2		CD::4	kill:

@@ -46,10 +46,12 @@ public class PlayerController : MonoBehaviour
     {
         //防止编辑器报错
         if (!GameManager.IsInitialized) return;
-
-        //去到另外一个场景需要注销订阅
-        MouseManager.Instance.OnMouseClicked -= MoveToTarget;
-        MouseManager.Instance.OnEnemyClicked -= EventAttack;
+        if (MouseManager.Instance)
+        {
+            //去到另外一个场景需要注销订阅
+            MouseManager.Instance.OnMouseClicked -= MoveToTarget;
+            MouseManager.Instance.OnEnemyClicked -= EventAttack;
+        }
     }
 
     private void Update()

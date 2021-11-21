@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Monster-Attack01-long
   m_EditorClassIdentifier: 
   attackRange: 3
-  skillRange: 20
-  coolDown: 4
-  baseAttackDamage: 100
-  changeRange: 10
+  skillRange: 10
+  coolDown: 10
+  baseAttackDamage: 80
+  changeRange: 1
   criticalMultiplier: 2
-  criticalChance: 0.35
+  criticalChance: 0.2

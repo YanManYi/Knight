@@ -46,6 +46,7 @@ public class CharacterData_SO : ScriptableObject
 
     private void LeveUP()
     {
+        if (currentLevel == maxLevel) return;
         //数据升级
         currentLevel = Mathf.Clamp(currentLevel + 1, 0, maxLevel);
         baseExp += (int)(baseExp * LevelMultiplier);
@@ -58,8 +59,10 @@ public class CharacterData_SO : ScriptableObject
 
         attackData.baseAttackDamage *= 2;
         attackData.changeRange *= 2;
-        attackData.criticalChance += 0.05f;
-        attackData.criticalMultiplier += 0.2f;
+
+        Debug.Log("升级，当前等级"+currentLevel);
+        //attackData.criticalChance += 0.05f;
+        //attackData.criticalMultiplier += 0.2f;
        
 
     }

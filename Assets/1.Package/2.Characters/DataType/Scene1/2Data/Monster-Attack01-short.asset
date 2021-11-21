@@ -16,6 +16,6 @@ MonoBehaviour:
   skillRange: 7
   coolDown: 4
   baseAttackDamage: 25
-  changeRange: 2
-  criticalMultiplier: 1.5
-  criticalChance: 0.25
+  changeRange: 1
+  criticalMultiplier: 2
+  criticalChance: 0.1
