@@ -6,8 +6,8 @@ using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour
 {
-
-    private NavMeshAgent agent;
+    [HideInInspector]
+    public  NavMeshAgent agent;
     private Animator anim;
     private GameObject   attackTarget;
 
@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+
         isDie = characterStats.CurrentHealth == 0;
         if (isDie)
         {

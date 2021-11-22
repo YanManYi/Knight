@@ -70,11 +70,12 @@ public class SceneController : SingLeton<SceneController>,IEndGameObserver
     {
         //TODO:数据还没加，这里保存数据
         SaveManager.Instance.SavePlayerData();
-        SceneFade fade = Instantiate(Resources.Load<GameObject>("UI/FadeCanvas")).GetComponent<SceneFade>();
+     
+
         //当前激活的场景和想要的场景名字，不一致，也就是异场景情况
         if (SceneManager.GetActiveScene().name != sceneName)
         {
-
+           SceneFade fade = Instantiate(Resources.Load<GameObject>("UI/FadeCanvas")).GetComponent<SceneFade>();
             yield return StartCoroutine(fade.FadeOut(fade.fadeInDurtion));
 
             yield return SceneManager.LoadSceneAsync(sceneName);
@@ -85,7 +86,8 @@ public class SceneController : SingLeton<SceneController>,IEndGameObserver
             //再次保存额外用于加载，场景和位置的情况
             SaveManager.Instance.SavePlayerData();
 
-            yield return StartCoroutine(fade.FadeIn(fade.fadeInDurtion));
+          yield return StartCoroutine(fade.FadeIn(fade.fadeInDurtion));
+
             yield break;//结束跳出协程
 
         }
@@ -167,9 +169,9 @@ public class SceneController : SingLeton<SceneController>,IEndGameObserver
 
         if (scene != "")
         {
-            SceneFade fade = Instantiate(Resources.Load<GameObject>("UI/FadeCanvas")).GetComponent<SceneFade>();
+           SceneFade fade = Instantiate(Resources.Load<GameObject>("UI/FadeCanvas")).GetComponent<SceneFade>();
 
-            yield return StartCoroutine(fade.FadeOut(fade.fadeInDurtion));
+          yield return StartCoroutine(fade.FadeOut(fade.fadeInDurtion));
 
             yield return SceneManager.LoadSceneAsync(scene);
             yield return player = Instantiate(playerPrefab, GetEntrance().position, GetEntrance().rotation);
@@ -178,7 +180,7 @@ public class SceneController : SingLeton<SceneController>,IEndGameObserver
 
             SaveManager.Instance.SavePlayerData();
 
-            yield return StartCoroutine(fade.FadeIn(fade.fadeInDurtion));
+          yield return StartCoroutine(fade.FadeIn(fade.fadeInDurtion));
             yield break;
 
         }
@@ -240,6 +242,7 @@ public class SceneController : SingLeton<SceneController>,IEndGameObserver
     IEnumerator LoadMainScene()
     {
         SceneFade fade = Instantiate(Resources.Load<GameObject>("UI/FadeCanvas")).GetComponent<SceneFade>();
+        
         yield return StartCoroutine(fade.FadeOut(fade.fadeInDurtion));
         yield return SceneManager.LoadSceneAsync("Level.Main");
         yield return StartCoroutine(fade.FadeIn(fade.fadeInDurtion));

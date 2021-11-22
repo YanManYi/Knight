@@ -75,21 +75,23 @@ public class SaveManager : SingLeton<SaveManager>
 
         PlayerPrefs.SetString(key, jsonData);
 
-        //if (SceneManager.GetActiveScene().buildIndex != 0) {
+       
 
 
            PlayerPrefs.SetString(sceneName, SceneManager.GetActiveScene().name);
 
-      //  }
-       // {
+      
 
-          ////  Vector3 player = PlayerController.Instance.transform.position;
+        if (FindObjectOfType<PlayerController>())
+        {
+            Vector3 player = FindObjectOfType<PlayerController>().transform.position;
 
-          //  //异场景不让执行到存储位置，而是默认传送门那个点位置并且开始保存加载的保存场景
-          //  PlayerPrefs.SetFloat("X", player.x);
-          //  PlayerPrefs.SetFloat("Y", player.y);
-          //  PlayerPrefs.SetFloat("Z", player.z);
-   //    }
+            FindObjectOfType<PlayerController>().agent.isStopped = true;
+            //异场景不让执行到存储位置，而是默认传送门那个点位置并且开始保存加载的保存场景
+            PlayerPrefs.SetFloat("X", player.x);
+            PlayerPrefs.SetFloat("Y", player.y);
+            PlayerPrefs.SetFloat("Z", player.z);
+        }
 
 
         PlayerPrefs.Save();
@@ -109,14 +111,15 @@ public class SaveManager : SingLeton<SaveManager>
 
             if (SceneManager.GetActiveScene().name == PlayerPrefs.GetString(sceneName))
             {
-                //Vector3 player = PlayerController.Instance.transform.position;
 
-                //player.x = PlayerPrefs.GetFloat("X");
-                //player.y = PlayerPrefs.GetFloat("Y");
-                //player.z = PlayerPrefs.GetFloat("Z");
+                Vector3 player = FindObjectOfType<PlayerController>().transform.position;
 
-                //PlayerController.Instance.transform.position = player;
-                //PlayerController.Instance.agent.destination = player;
+                player.x = PlayerPrefs.GetFloat("X");
+                player.y = PlayerPrefs.GetFloat("Y");
+                player.z = PlayerPrefs.GetFloat("Z");
+
+                FindObjectOfType<PlayerController>().transform.position = player;
+                FindObjectOfType<PlayerController>().agent.destination = player;
 
             }
         }

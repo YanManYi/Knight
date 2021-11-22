@@ -34,7 +34,16 @@ public class PlayerHealthUI : MonoBehaviour
             float sliderPercent = (float)GameManager.Instance.playerStats.CurrentHealth / GameManager.Instance.playerStats.MaxHealth;
             healthSlider.fillAmount = sliderPercent;
             health.text = (GameManager.Instance.playerStats.CurrentHealth) + "" + "/" + (GameManager.Instance.playerStats.MaxHealth);
-        
+
+        if (healthSlider.fillAmount < 0.8f)
+        {
+            healthSlider.color = new Color(1, 1, 0);
+            if (healthSlider.fillAmount < 0.3f)
+                healthSlider.color = new Color(1, 0, 0);
+
+
+        }
+
     }
 
 
