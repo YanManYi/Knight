@@ -196,8 +196,8 @@ public class EnemyController : MonoBehaviour,IEndGameObserver
     {
         if (attackTarget)
         {
-            //在正前方49°才造成伤害,Cos24.6=0.9
-            if (Vector3.Dot(transform.forward, (attackTarget.transform.position - transform.position).normalized) >= 0.9f)
+            //在正前方左右37才造成伤害,Cos37约等于0.8
+            if (Vector3.Dot(transform.forward, (attackTarget.transform.position - transform.position).normalized) >= 0.8f)
             {
                 if (Vector3.Distance(attackTarget.transform.position,transform.position)<=characterStats.AttackRange) {
                     CharacterStats targetStats = attackTarget.GetComponent<CharacterStats>();

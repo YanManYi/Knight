@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundController : MonoBehaviour
+public class SoundController : SingLeton<SoundController>
 {
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         DontDestroyOnLoad(this);
     }
 }

@@ -222,6 +222,7 @@ public class SceneController : SingLeton<SceneController>,IEndGameObserver
     /// </summary>
     public void EndNotify()
     {
+      
         if (fadeIsPlay)
         {
             fadeIsPlay = false;
@@ -242,6 +243,7 @@ public class SceneController : SingLeton<SceneController>,IEndGameObserver
         yield return StartCoroutine(fade.FadeOut(fade.fadeInDurtion));
         yield return SceneManager.LoadSceneAsync("Level.Main");
         yield return StartCoroutine(fade.FadeIn(fade.fadeInDurtion));
+        fadeIsPlay = true;//第二次死一样返回menu
         yield break;
 
     }

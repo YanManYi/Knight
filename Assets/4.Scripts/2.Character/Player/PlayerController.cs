@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        
         anim = GetComponent<Animator>();
         characterStats = GetComponent<CharacterStats>();
 
@@ -65,6 +66,15 @@ public class PlayerController : MonoBehaviour
         }
         SwitchAnimation();
       lastAttackTime  -= Time.deltaTime;
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            agent.speed =5.5f;
+        }
+        else
+        {
+            agent.speed = 4;
+        }
     }
 
     /// <summary>
@@ -109,9 +119,9 @@ public class PlayerController : MonoBehaviour
 
         //原因：在结束循环时候不好判断接近值，lerp最后插值他们不会相等，无法跳出while循环，这很烦。
         //解决：利用点乘的绝对值和四象限的cos的值比较大小，人物相差角度越小，dot值越大。 Vector3.Dot(transform.forward, target)<0是考虑背对的时候第一个条件也满足的尴尬，背对攻击
-        while (Mathf.Abs(Vector3.Dot(transform.forward, target)) <= 0.95f|| Vector3.Dot(transform.forward, target)<0)
+        while (Mathf.Abs(Vector3.Dot(transform.forward, target)) <= 0.95f&& Vector3.Dot(transform.forward, target)<0)
         {
-            transform.forward = Vector3.Lerp(transform.forward, target, 0.1f);
+            transform.forward = Vector3.Lerp(transform.forward, target, 0.2f);
             yield return null;
         }
         transform.LookAt(attackTarget.transform);
@@ -185,8 +195,8 @@ public class PlayerController : MonoBehaviour
             //360°的敌人都在范围
             for (int i = 0; i < v.Length; i++)
             {
-                //在正前方120°才造成伤害
-                if (Vector3.Dot(transform.forward, (v[i].transform.position - transform.position).normalized) >= 0.5f)
+                //在正前方180才造成伤害
+                if (Vector3.Dot(transform.forward, (v[i].transform.position - transform.position).normalized) >=0f)
                 {
                     targetStats.TakeDamage(characterStats, v[i].GetComponent<CharacterStats>());
                 }
@@ -196,8 +206,8 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            //在正前方49°才造成伤害,Cos24.6=0.9
-            if (Vector3.Dot(transform.forward, (attackTarget.transform.position - transform.position).normalized) >= 0.9f)
+            //在正前方120°才造成伤害,Cos60=0.5
+            if (Vector3.Dot(transform.forward, (attackTarget.transform.position - transform.position).normalized) >= 0.5f)
                 targetStats.TakeDamage(characterStats, targetStats);
 
         }

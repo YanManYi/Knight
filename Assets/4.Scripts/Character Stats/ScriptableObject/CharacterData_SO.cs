@@ -60,7 +60,7 @@ public class CharacterData_SO : ScriptableObject
         attackData.baseAttackDamage *= 2;
         attackData.changeRange *= 2;
 
-        Debug.Log("升级，当前等级"+currentLevel);
+        Debug.Log("升级:当前等级"+currentLevel);
         //attackData.criticalChance += 0.05f;
         //attackData.criticalMultiplier += 0.2f;
        

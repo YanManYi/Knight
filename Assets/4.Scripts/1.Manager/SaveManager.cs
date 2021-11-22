@@ -21,10 +21,12 @@ public class SaveManager : SingLeton<SaveManager>
 
 
     private void Update()
-    {
-
-
-        if (Input.GetKeyDown(KeyCode.Escape))
+    { 
+       
+      
+        
+       
+        if (Input.GetKeyDown(KeyCode.Escape)&&GameManager.Instance.playerStats.CurrentHealth>0&&SceneManager.GetActiveScene().name!= "Level.Main")
         {
             //传送门的时候也保存一次数据
             SavePlayerData();

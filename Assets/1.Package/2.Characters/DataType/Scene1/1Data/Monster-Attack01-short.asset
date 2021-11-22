@@ -18,4 +18,4 @@ MonoBehaviour:
   baseAttackDamage: 15
   changeRange: 1
   criticalMultiplier: 2
-  criticalChance: 0.1
+  criticalChance: 0.2

@@ -16,7 +16,7 @@ MonoBehaviour:
   currentHealth: 800
   baseDefence: 0
   currentDefence: 0
-  killScore: 40
+  killScore: 60
   currentLevel: 0
   maxLevel: 0
   baseExp: 0
