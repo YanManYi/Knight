@@ -9,7 +9,7 @@ public class GameManager : SingLeton<GameManager>
     public CharacterStats playerStats;
 
     //观察者列表,接口列表
-   public  List<IEndGameObserver> endGameObservers = new List<IEndGameObserver>();
+    public List<IEndGameObserver> endGameObservers = new List<IEndGameObserver>();
 
     protected override void Awake()
     {
@@ -22,6 +22,7 @@ public class GameManager : SingLeton<GameManager>
     //写一个接口IEndGameObserver，它负责抽象先写一个函数EndNotify(),供使用了接口的对象（这里都是EnemyController使用）
     //然后再GameManager里声明接口列表，GameManager类里要有可以添加(订阅)和移除接口列表里的对象，供其他类使用（其他这里都是EnemyController使用，因为它继承了接口）
     //最后满足条件的情况调用（广播）每一个添加进列表的对象的接口中Notify方法
+
     public void RigisterPlayer(CharacterStats characterStats)
     {
         playerStats = characterStats;
@@ -43,7 +44,7 @@ public class GameManager : SingLeton<GameManager>
     /// <param name="observer"></param>
     public void RemoveObserver(IEndGameObserver observer)
     {
-        endGameObservers.Remove (observer);
+        endGameObservers.Remove(observer);
 
     }
 

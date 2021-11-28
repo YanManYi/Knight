@@ -106,13 +106,22 @@ public class CharacterStats : MonoBehaviour
         if (templateData != null) characterData = Instantiate(templateData);
         if (TempAttackData != null) attackData = Instantiate(TempAttackData);
 
-        characterData.attackData = attackData;//升级用
+       
 
        
         //每个人物一开始都获取到一次
         doTweenUICanvasList = GameObject.FindGameObjectWithTag("DoTweenUICanvasList");
         prefab_KillDamageCanvas = Resources.Load<GameObject>("DoTweenUICanvas/KillDamageCanvas");
     }
+    private void Start()
+    {
+     //给克隆出来的Data赋值别再同一帧，可能会赋值不上  
+        characterData.attackData = attackData;//升级用
+      
+    }
+
+
+
     /// <summary>
     /// 
     /// </summary>

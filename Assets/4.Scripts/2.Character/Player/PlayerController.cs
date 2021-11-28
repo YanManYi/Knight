@@ -115,25 +115,34 @@ public class PlayerController : MonoBehaviour
        
         agent.isStopped = false;
 
-        //  transform.LookAt(attackTarget.transform);
-        Vector3 target = (attackTarget.transform.position - transform.position).normalized;
-
-        //原因：在结束循环时候不好判断接近值，lerp最后插值他们不会相等，无法跳出while循环，这很烦。
-        //解决：利用点乘的绝对值和四象限的cos的值比较大小，人物相差角度越小，dot值越大。 Vector3.Dot(transform.forward, target)<0是考虑背对的时候第一个条件也满足的尴尬，背对攻击
-        while (Mathf.Abs(Vector3.Dot(transform.forward, target)) <= 0.95f&& Vector3.Dot(transform.forward, target)<0)
-        {
-            transform.forward = Vector3.Lerp(transform.forward, target, 0.2f);
-            yield return null;
-        }
-        transform.LookAt(attackTarget.transform);
-
         //TODO:根据武器长度修改攻击距离
-        while (Vector3.Distance(attackTarget.transform.position, transform.position) > characterStats .AttackRange)
+        while (Vector3.Distance(attackTarget.transform.position, transform.position) >= characterStats.AttackRange)
         {
 
             agent.SetDestination(attackTarget.transform.position);
+            transform.LookAt(attackTarget.transform);
             yield return null;
         }
+
+        agent.isStopped = true;
+
+
+        //原因：在结束循环时候不好判断接近值，lerp最后插值他们不会相等，无法跳出while循环，这很烦。
+        //解决：利用点乘的绝对值和四象限的cos的值比较大小，人物相差角度越小，dot值越大。
+        while (Vector3.Dot(transform.forward, (attackTarget.transform.position - transform.position).normalized) <= 0.95f)
+        {                  
+            transform.forward = Vector3.Lerp(transform.forward, (attackTarget.transform.position - transform.position).normalized, 0.1f);
+          
+            yield return null;
+        }
+
+       // Vector3.Dot(transform.forward, target) < 0是考虑背对的时候第一个条件也满足的尴尬，背对攻击
+        if (Vector3.Dot(transform.forward, (attackTarget.transform.position - transform.position).normalized) <0)
+        {
+            transform.LookAt(attackTarget.transform);
+        }
+
+     
 
 
         //Attack

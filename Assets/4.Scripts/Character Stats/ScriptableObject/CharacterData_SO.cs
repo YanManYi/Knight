@@ -42,6 +42,8 @@ public class CharacterData_SO : ScriptableObject
         currentExp += killScore;
 
         if (currentExp >= baseExp) LeveUP();
+
+       
     }
 
     private void LeveUP()
@@ -57,6 +59,7 @@ public class CharacterData_SO : ScriptableObject
         baseDefence *= 2;
         currentDefence = baseDefence;
 
+        Debug.Log(attackData);
         attackData.baseAttackDamage *= 2;
         attackData.changeRange *= 2;
 

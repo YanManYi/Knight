@@ -16,13 +16,13 @@ public class MouseManager : SingLeton<MouseManager>
     public event Action<Vector3> OnMouseClicked;
     public event Action<GameObject> OnEnemyClicked;
 
-    RaycastHit hitInfo;
+    private RaycastHit hitInfo;
     public LayerMask layerMask;
 
     protected override void Awake()
     {
         base.Awake();
-     DontDestroyOnLoad(this);
+        DontDestroyOnLoad(this);
     }
 
 
@@ -30,7 +30,7 @@ public class MouseManager : SingLeton<MouseManager>
     {
         SetCursorTexture();
         MouseController();
-        
+
     }
 
     /// <summary>
@@ -39,14 +39,14 @@ public class MouseManager : SingLeton<MouseManager>
     void SetCursorTexture()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray,out hitInfo,1000,layerMask))//不检测player层，这样子透过player不造成阻挡
+        if (Physics.Raycast(ray, out hitInfo, 1000, layerMask))//不检测player层，这样子透过player不造成阻挡
         {
             //切换贴图
 
             switch (hitInfo.transform.tag)
             {
                 case "Ground":
-                    Cursor.SetCursor(target,new Vector2(16,16),CursorMode.Auto);
+                    Cursor.SetCursor(target, new Vector2(16, 16), CursorMode.Auto);
                     break;
 
                 case "Enemy":
@@ -66,9 +66,9 @@ public class MouseManager : SingLeton<MouseManager>
 
     void MouseController()
     {
-        if (Input.GetMouseButtonDown(0)&&hitInfo.collider!=null)//主角死了就不能点了缺个判断
+        if (Input.GetMouseButtonDown(0) && hitInfo.collider != null)//主角死了就不能点了缺个判断
         {
-           
+
             switch (hitInfo.transform.tag)
             {
 
@@ -77,7 +77,7 @@ public class MouseManager : SingLeton<MouseManager>
                     break;
 
                 case "Enemy":
-                    
+
                     OnEnemyClicked?.Invoke(hitInfo.collider.gameObject);
                     break;
 

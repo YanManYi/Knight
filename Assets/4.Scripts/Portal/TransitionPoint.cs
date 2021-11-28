@@ -55,9 +55,9 @@ public class TransitionPoint : MonoBehaviour
             
             
             if (transitionType == TransitionType.SameScene)
-                GetComponentInChildren<Text>().DOText("按E键同场景传送", 2f);
+                GetComponentInChildren<Text>().DOText("按E键同场景传送", 1f);
             if (transitionType == TransitionType.DifferentScene)
-                GetComponentInChildren<Text>().DOText("按E键跨场景传送并保存数据", 2f);
+                GetComponentInChildren<Text>().DOText("按E键跨场景传送并保存数据", 1.3f);
         }
     }
     private void OnTriggerStay(Collider other)

@@ -21,20 +21,20 @@ public class SaveManager : SingLeton<SaveManager>
 
 
     private void Update()
-    { 
-       
-      
-        
-       
-        if (Input.GetKeyDown(KeyCode.Escape)&&GameManager.Instance.playerStats.CurrentHealth>0&&SceneManager.GetActiveScene().name!= "Level.Main")
+    {
+
+
+
+
+        if (Input.GetKeyDown(KeyCode.Escape) && GameManager.Instance.playerStats.CurrentHealth > 0 && SceneManager.GetActiveScene().name != "Level.Main")
         {
             //传送门的时候也保存一次数据
             SavePlayerData();
-          SceneController.Instance.TransitionToMainScene();
+            SceneController.Instance.TransitionToMainScene();
 
         }
 
-   
+
 
     }
 
@@ -75,12 +75,12 @@ public class SaveManager : SingLeton<SaveManager>
 
         PlayerPrefs.SetString(key, jsonData);
 
-       
 
 
-           PlayerPrefs.SetString(sceneName, SceneManager.GetActiveScene().name);
 
-      
+        PlayerPrefs.SetString(sceneName, SceneManager.GetActiveScene().name);
+
+
 
         if (FindObjectOfType<PlayerController>())
         {
